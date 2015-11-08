@@ -57,11 +57,11 @@ a:hover {color:#FF6600; text-decoration: underline;}
   
   <body>
   <c:choose>
-  	<c:when test="${code eq 'success' }">
+  	<c:when test="${code eq 'success' }"><%--如果code是功能，它显示对号图片 --%>
   		<c:set var="img" value="/images/duihao.jpg"/>
   		<c:set var="title" value="成功"/>
   	</c:when>
-  	<c:when test="${code eq 'error' }">
+  	<c:when test="${code eq 'error' }"><%--如果code是功能，它显示错号图片 --%>
   		<c:set var="img" value="/images/cuohao.png"/>
   		<c:set var="title" value="失败"/>
   	</c:when>

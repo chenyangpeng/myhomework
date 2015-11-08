@@ -54,7 +54,7 @@ img {
 }
 
 .linkNext {
-	background: url(/goods/images/icon2.png) no-repeat;
+	background: url(/goods/images/btn.bmp) no-repeat;
 	display: inline-block;
 	background-position: 0 -35px;
 	height: 40px;
@@ -77,3 +77,5 @@ img {
 	width: 190px;
 	poorfish: expression(this.onclick = function jiesuan(){return true});
 }
+¡£xiayibu{width:300px; float:right; text-align:right; line-height:60px£»
+background: url(/goods/images/icon2.png) no-repeat;}

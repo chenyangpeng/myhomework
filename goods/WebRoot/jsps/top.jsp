@@ -23,29 +23,38 @@
 		color: #ffffff;
 	}
 	a {
-		text-transform:none;
 		text-decoration:none;
 		color: #ffffff;
 		font-weight: 900;
 	} 
 	a:hover {
-		text-decoration:underline;
+		text-decoration: underline;
+		color: #ffffff;
+		font-weight: 900;
 	}
 </style>
   </head>
   
   <body>
-<h1 style="text-align: center;">传智播客网上书城系统</h1>
+<h1 style="text-align: center;">书城系统</h1>
 <div style="font-size: 10pt; line-height: 10px;">
 
-		  <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">传智会员登录</a> |&nbsp; 
-		  <a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">注册传智会员</a>
-
-		      传智会员：张三&nbsp;&nbsp;|&nbsp;&nbsp;
-		  <a href="<c:url value='/jsps/cart/list.jsp'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-		  <a href="<c:url value='/jsps/order/list.jsp'/>" target="body">我的传智订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%-- 根据用户是否登录，显示不同的链接 --%>
+<c:choose>
+	<c:when test="${empty sessionScope.sessionUser }">
+		  <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">会员登录</a> |&nbsp; 
+		  <a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">注册会员</a>	
+	</c:when>
+	<c:otherwise>
+		        会员：${sessionScope.sessionUser.loginname }&nbsp;&nbsp;|&nbsp;&nbsp;
+		  <a href="<c:url value='/CartItemServlet?method=myCart'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		  <a href="<c:url value='/OrderServlet?method=myOrders'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		  <a href="<c:url value='/jsps/user/pwd.jsp'/>" target="body">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-		  <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">退出</a>	
+		  <a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>&nbsp;&nbsp;|&nbsp;&nbsp;		 
+	</c:otherwise>
+</c:choose>
+
+
 
 </div>
   </body>
